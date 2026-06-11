@@ -1,0 +1,67 @@
+title: "Code Execution with MCP: Building More Efficient AI Agents"
+slug: "code-execution-mcp"
+url: "https://www.anthropic.com/engineering/code-execution-with-mcp"
+date: "2025-11-04"
+section: engineering
+authors: ["Adam Jones", "Conor Kelly"]
+category: C4
+subcategory: mcp
+tags: ["MCP", "code-execution", "token-efficiency", "context-management", "privacy", "skills"]
+difficulty: L2
+format: tutorial
+reading_time_min: 20
+
+scores:
+  technical_depth: 8
+  actionability: 9
+  novelty: 7
+  impact: 8
+  educational_value: 8
+  timeliness: 7
+  reproducibility: 8
+
+overall_score: 7.9
+
+related_github_projects:
+  - name: "claude-code"
+    url: "https://github.com/anthropics/claude-code"
+    relation: "official"
+    stars: 125000
+    description: "Claude Code implements code execution patterns described"
+
+derived_practices: []
+
+prerequisites: ["advanced-tool-use", "desktop-extensions-mcp"]
+follows_up: []
+
+key_takeaways:
+  - "MCP 工具数量增长导致两个问题: 定义占用上下文 + 中间结果消耗 token"
+  - "解决方案: 将 MCP 服务器呈现为代码 API，Agent 写代码编排工具调用"
+  - "Token 节省: 从 150K tokens 降至 2K tokens，节省 98.7%"
+  - "四大优势: 渐进式发现、上下文高效结果、隐私保护（PII tokenization）、状态持久化"
+  - "Agent 可将常用代码保存为可复用的 Skills，逐步构建高层能力工具箱"
+
+mind_map: |
+  flowchart TD
+    A["Code Execution + MCP"] --> B["问题"]
+    A --> C["解决方案"]
+    B --> B1["工具定义占上下文"]
+    B --> B2["中间结果消耗 token"]
+    C --> C1["工具 → 代码 API"]
+    C --> C2["Agent 写代码编排"]
+    C --> C3["结果过滤在执行环境"]
+    A --> D["优势"]
+    D --> D1["渐进式发现"]
+    D --> D2["98.7% token 节省"]
+    D --> D3["PII tokenization"]
+    D --> D4["状态持久化"]
+
+practice_ideas:
+  - title: "实现代码执行模式的 MCP 客户端"
+    difficulty: "L2"
+    description: "将 MCP 工具生成文件树结构，Agent 通过代码导入和调用，而非直接工具调用"
+    tech_stack: "TypeScript + MCP SDK"
+  - title: "实现 PII Tokenization 中间层"
+    difficulty: "L3"
+    description: "在 MCP 客户端添加自动 PII 检测和 tokenization，确保敏感数据不进入模型上下文"
+    tech_stack: "TypeScript + Presidio/regex"

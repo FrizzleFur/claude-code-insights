@@ -1,0 +1,44 @@
+title: "Project Deal"
+slug: "project-deal"
+url: "https://www.anthropic.com/research/project-deal"
+date: "2026-04-24"
+section: research
+authors: ["Anthropic"]
+category: C3
+subcategory: societal-impacts
+tags: ["agent", "negotiation", "marketplace", "real-world", "experiment"]
+difficulty: L1
+format: case-study
+reading_time_min: 20
+
+scores:
+  technical_depth: 5
+  actionability: 4
+  novelty: 7
+  impact: 7
+  educational_value: 6
+  timeliness: 8
+  reproducibility: 4
+
+overall_score: 5.9
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: []
+
+key_takeaways:
+  - "让 Claude 在办公室内部市场中代为买卖和谈判"
+  - "探索 AI 在真实经济场景中的能力边界"
+  - "有趣的 Agent 能力实验"
+
+mind_map: |
+  flowchart TD
+    A["Project Deal"] --> B["实验设计"]
+    B --> B1["Claude 代为交易"]
+    B --> B2["真实市场环境"]
+    A --> C["发现"]
+    C --> C1["谈判能力"]
+    C --> C2["经济决策"]
+
+practice_ideas: []

@@ -1,0 +1,52 @@
+title: "Demystifying Evals for AI Agents"
+slug: "demystifying-evals-agents"
+url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+date: "2026-01-09"
+section: engineering
+authors: ["Anthropic"]
+category: C1
+subcategory: agent-eval
+tags: ["eval", "agent", "benchmark", "LLM-as-judge", "evaluation"]
+difficulty: L2
+format: conceptual
+reading_time_min: 20
+
+scores:
+  technical_depth: 7
+  actionability: 8
+  novelty: 6
+  impact: 7
+  educational_value: 9
+  timeliness: 7
+  reproducibility: 7
+
+overall_score: 7.2
+
+related_github_projects: []
+
+derived_practices: []
+
+prerequisites: ["building-effective-agents"]
+follows_up: ["ai-resistant-evaluations", "infrastructure-noise-evals"]
+
+key_takeaways:
+  - "Agent eval 的核心挑战: 非确定性、多路径、长程依赖"
+  - "评估方法: 小样本快速迭代 + LLM-as-judge 规模化 + 人类测试"
+  - "关注最终状态而非过程步骤，允许 Agent 通过不同路径达到目标"
+
+mind_map: |
+  flowchart TD
+    A["Agent Evals"] --> B["核心挑战"]
+    B --> B1["非确定性"]
+    B --> B2["多有效路径"]
+    B --> B3["长程依赖"]
+    A --> C["评估方法"]
+    C --> C1["小样本快速迭代"]
+    C --> C2["LLM-as-Judge"]
+    C --> C3["人类测试"]
+
+practice_ideas:
+  - title: "构建 Agent 评估框架"
+    difficulty: "L2"
+    description: "创建包含 task 定义、LLM-as-judge 和人类评估的评估管道"
+    tech_stack: "Python + Claude API"

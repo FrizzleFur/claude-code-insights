@@ -1,0 +1,41 @@
+title: "A Postmortem of Three Recent Issues"
+slug: "postmortem-three-issues"
+url: "https://www.anthropic.com/engineering/postmortem-of-three-recent-issues"
+date: "2025-09-17"
+section: engineering
+authors: ["Anthropic"]
+category: C4
+subcategory: claude-code
+tags: ["postmortem", "incident", "claude", "transparency"]
+difficulty: L1
+format: case-study
+reading_time_min: 10
+
+scores:
+  technical_depth: 5
+  actionability: 5
+  novelty: 2
+  impact: 4
+  educational_value: 5
+  timeliness: 4
+  reproducibility: 3
+
+overall_score: 4.2
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: []
+
+key_takeaways:
+  - "三个近期问题的透明事后分析"
+  - "展示了 Anthropic 的工程透明度和事故响应文化"
+
+mind_map: |
+  flowchart TD
+    A["Postmortem"] --> B["事故响应"]
+    B --> B1["问题识别"]
+    B --> B2["根因分析"]
+    B --> B3["修复和预防"]
+
+practice_ideas: []

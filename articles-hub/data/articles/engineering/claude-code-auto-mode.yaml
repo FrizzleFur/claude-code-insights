@@ -1,0 +1,57 @@
+title: "Claude Code Auto Mode: A Safer Way to Skip Permissions"
+slug: "claude-code-auto-mode"
+url: "https://www.anthropic.com/engineering/claude-code-auto-mode"
+date: "2026-03-25"
+section: engineering
+authors: ["Anthropic"]
+category: C4
+subcategory: claude-code
+tags: ["claude-code", "auto-mode", "permissions", "classifier", "safety"]
+difficulty: L2
+format: reference
+reading_time_min: 15
+
+scores:
+  technical_depth: 6
+  actionability: 9
+  novelty: 5
+  impact: 7
+  educational_value: 7
+  timeliness: 7
+  reproducibility: 8
+
+overall_score: 6.9
+
+related_github_projects:
+  - name: "claude-code"
+    url: "https://github.com/anthropics/claude-code"
+    relation: "official"
+    stars: 125000
+    description: "Auto mode feature in Claude Code"
+
+derived_practices: []
+
+prerequisites: ["claude-code-best-practices", "beyond-permission-prompts"]
+follows_up: []
+
+key_takeaways:
+  - "Auto mode 使用分类器模型审查命令，只阻止高风险操作"
+  - "三种权限模式: 默认(全部确认)、Auto(分类器审查)、Sandbox(OS级隔离)"
+  - "适用场景: 信任任务方向但不想逐个确认步骤"
+
+mind_map: |
+  flowchart TD
+    A["Auto Mode"] --> B["权限模式对比"]
+    B --> B1["默认: 全部确认"]
+    B --> B2["Auto: 分类器审查"]
+    B --> B3["Sandbox: OS隔离"]
+    A --> C["分类器阻止"]
+    C --> C1["范围扩大"]
+    C --> C2["未知基础设施"]
+    C --> C3["恶意内容驱动"]
+
+practice_ideas:
+  - title: "配置 Claude Code Auto Mode"
+    difficulty: "L1"
+    description: "在项目中启用 auto mode，观察分类器的阻止/放行决策，调整权限规则"
+    tech_stack: "Claude Code"

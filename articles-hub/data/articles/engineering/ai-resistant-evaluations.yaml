@@ -1,0 +1,48 @@
+title: "Designing AI-Resistant Technical Evaluations"
+slug: "ai-resistant-evaluations"
+url: "https://www.anthropic.com/engineering/designing-ai-resistant-technical-evaluations"
+date: "2026-01-21"
+section: engineering
+authors: ["Anthropic"]
+category: C2
+subcategory: coding-best-practices
+tags: ["eval", "interview", "AI-resistant", "technical-assessment", "hiring"]
+difficulty: L2
+format: conceptual
+reading_time_min: 15
+
+scores:
+  technical_depth: 6
+  actionability: 7
+  novelty: 7
+  impact: 6
+  educational_value: 7
+  timeliness: 8
+  reproducibility: 5
+
+overall_score: 6.6
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: []
+
+key_takeaways:
+  - "传统编程面试评估已可被 AI 轻松通过，需要重新设计"
+  - "AI-resistant 评估应测试: 系统设计思维、模糊需求处理、多权衡决策"
+  - "评估设计原则: 测试真实工作场景中的判断力而非编码速度"
+
+mind_map: |
+  flowchart TD
+    A["AI-Resistant Evals"] --> B["问题"]
+    B --> B1["传统面试可被 AI 通过"]
+    A --> C["解决方案"]
+    C --> C1["系统设计思维"]
+    C --> C2["模糊需求处理"]
+    C --> C3["多权衡决策"]
+
+practice_ideas:
+  - title: "设计 AI-resistant 评估题目"
+    difficulty: "L2"
+    description: "设计需要权衡决策和系统思考的技术评估题目"
+    tech_stack: "N/A (方法论)"

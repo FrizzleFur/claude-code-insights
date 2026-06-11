@@ -1,0 +1,333 @@
+title: "Introducing Contextual Retrieval"
+slug: "contextual-retrieval"
+url: "https://www.anthropic.com/news/contextual-retrieval"
+date: "2024-09-19"
+section: engineering
+authors: ["Anthropic"]
+category: C2
+subcategory: context-engineering
+tags: ["RAG", "retrieval", "contextual-embeddings", "contextual-bm25", "chunking"]
+difficulty: L2
+format: tutorial
+reading_time_min: 20
+
+scores:
+  technical_depth: 9
+  actionability: 9
+  novelty: 9
+  impact: 9
+  educational_value: 9
+  timeliness: 8
+  reproducibility: 9
+
+overall_score: 8.9
+
+related_github_projects:
+  - name: "claude-cookbooks"
+    url: "https://github.com/anthropics/claude-cookbooks"
+    relation: "official"
+    stars: 43500
+    description: "Contextual retrieval cookbook implementation"
+
+derived_practices: []
+
+prerequisites: []
+follows_up: ["effective-context-engineering"]
+
+key_takeaways:
+  - "Contextual Retrieval 用两个子技术大幅改善 RAG 检索: Contextual Embeddings + Contextual BM25"
+  - "核心思路: 将 chunk 放入其所在文档的上下文中，让嵌入和检索更准确"
+  - "使用 Claude 为每个 chunk 添加上下文前缀，然后重新嵌入"
+  - "结合 Contextual Embeddings + Contextual BM25 效果最佳"
+
+mind_map: |
+  flowchart TD
+    A["Contextual Retrieval"] --> B["问题: RAG 检索不准"]
+    A --> C["两大技术"]
+    C --> C1["Contextual Embeddings<br/>chunk 添加上下文后嵌入"]
+    C --> C2["Contextual BM25<br/>上下文增强关键词检索"]
+    A --> D["流程"]
+    D --> D1["文档分块"]
+    D --> D2["Claude 为 chunk 添加上下文"]
+    D --> D3["重新嵌入 + 索引"]
+    D --> D4["混合检索"]
+
+practice_ideas:
+  - title: "实现 Contextual Retrieval RAG 管道"
+    difficulty: "L2"
+    description: "用 Claude 为 chunk 生成上下文前缀，构建混合检索（embedding + BM25）管道"
+    tech_stack: "Python + Claude API + Vector DB"
+
+outline:
+  - title: "引言: RAG 的上下文丢失问题"
+    description: "传统 RAG 在分块时丢失了文档上下文，导致检索不准确。提出 Contextual Retrieval 方案，包含两个子技术: Contextual Embeddings 和 Contextual BM25。"
+  - title: "RAG 基础: 从向量检索到混合检索"
+    description: "回顾 RAG 的工作流程: 分块 → 嵌入 → 向量数据库 → 语义检索。引入 BM25 作为精确匹配补充，混合检索优于单一方法。"
+  - title: "上下文丢失问题: SEC 填报案例"
+    description: "用一个具体案例说明: 分块后的 'The company's revenue grew by 3%' 丢失了公司名称和时间信息，导致检索失败。"
+  - title: "Contextual Retrieval 实现"
+    description: "用 Claude 为每个 chunk 生成简洁的上下文前缀（50-100 tokens），然后重新嵌入和索引。结合 Prompt Caching 降低成本至 $1.02/百万 tokens。"
+  - title: "性能数据: 49% 检索失败率降低"
+    description: "Contextual Embeddings 降低 35%，加上 Contextual BM25 降低 49%。结合 Reranking 进一步降低 67%。"
+  - title: "Reranking: 进一步提升的叠加策略"
+    description: "先用混合检索取 top-150，再用 Reranker 精排到 top-20。叠加后检索失败率从 5.7% 降至 1.9%。"
+  - title: "结论与实施建议"
+    description: "六大发现总结: Embeddings+BM25 > 单一方法; Voyage/Gemini 最佳; 20 chunks > 10/5; 上下文增强有效; Reranking 有帮助; 所有收益可叠加。"
+
+deep_analysis:
+  - excerpt: "The company's revenue grew by 3% over the previous quarter. → This chunk is from an SEC filing on ACME corp's performance in Q2 2023; the previous quarter's revenue was $314 million."
+    context: "分块上下文丢失的经典案例"
+    image: "https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F45603646e979c62349ce27744a940abf30200d57-3840x2160.png&w=3840&q=75"
+    image_caption: "Standard RAG — 传统分块丢失文档上下文导致检索失败"
+    commentary: |
+      这个案例精确揭示了 RAG 的核心缺陷:
+
+      **问题本质**: 传统 RAG 的分块粒度（通常几百 tokens）在语义上是"原子"的，但原子化必然丢失"分子级"的上下文。
+      - 原始句子: "The company's revenue grew by 3% over the previous quarter."
+      - 向量嵌入编码的语义: "收入增长 3%" — 但这是谁的收入？哪个季度？
+      - 当用户查询 "ACME Corp Q2 2023 revenue growth" 时，嵌入向量无法匹配到这个 chunk
+
+      **Contextual Retrieval 的解决方式**:
+      - 不是改变分块策略，而是在 chunk 前面添加上下文前缀
+      - 前缀由 Claude 自动生成，把"这是 ACME Corp 的 2023 Q2 SEC 填报"这一信息重新注入
+      - 嵌入向量现在编码的是 "ACME Corp Q2 2023 + 收入增长 3%"，检索精度大幅提升
+
+      **为什么不是简单地用更大的 chunk**: 大 chunk 解决了部分上下文问题，但引入新问题 — 嵌入粒度变粗，语义稀释。一个 2000 token 的 chunk 包含多个主题，嵌入向量无法精确代表任何一个。Contextual Retrieval 在保持细粒度的同时恢复了上下文。
+
+    analogy: "想象你在看一本电话簿，每个号码旁边只写了'家里'、'公司'、'妈妈'。没有名字，你完全不知道这是谁的号码。Contextual Retrieval 就像是给每个号码贴上便利贴，写上'这是张三公司的电话'，一下子就能找到了。"
+
+    qa_chain:
+      - q: "为什么 RAG 要把文档切成小块？不切不行吗？"
+        a: "因为嵌入模型有输入长度限制（通常 512-8192 tokens），而且<strong>语义聚焦</strong>的需求 — 短文本的嵌入向量更精确地表达单一语义，长文本的向量会被多个主题'稀释'。"
+        depth: 0
+      - q: "分块后丢失上下文，具体会导致什么问题？"
+        a: "最典型的场景: 一个 chunk 说'增长了 3%'，但<strong>公司名和时间信息在上一个 chunk 里</strong>。用户查询'ACME 公司 2023 年 Q2 收入增长'时，向量检索完全匹配不上这个孤立的数字。"
+        depth: 1
+      - q: "为什么不直接用更大的 chunk 来保留上下文？"
+        a: "大 chunk 会引入<strong>语义稀释</strong>问题 — 一个 2000 token 的 chunk 可能包含收入、利润、现金流三个话题，嵌入向量是三者的平均，反而更难精确匹配任何单一查询。Contextual Retrieval 用'小 chunk + 上下文前缀'兼顾了粒度和上下文。"
+        depth: 2
+
+    diagram: |
+      flowchart LR
+        subgraph 传统 RAG
+          D1["文档"] --> C1["分块"]
+          C1 --> E1["嵌入"]
+          E1 --> Q1["查询: ACME Q2 收入?"]
+          Q1 -->|匹配失败| X["❌ 3% 增长"]
+        end
+        subgraph Contextual Retrieval
+          D2["文档"] --> C2["分块"]
+          C2 --> P["Claude 添加上下文前缀"]
+          P --> E2["嵌入"]
+          E2 --> Q2["查询: ACME Q2 收入?"]
+          Q2 -->|匹配成功| OK["✅ ACME Q2: 3% 增长"]
+        end
+
+    diagram_caption: "传统 RAG 分块丢失上下文 vs Contextual Retrieval 恢复上下文"
+
+    github_refs:
+      - name: "claude-cookbooks"
+        url: "https://github.com/anthropics/claude-cookbooks"
+        description: "Anthropic 官方 cookbook，包含 Contextual Retrieval 的完整实现示例"
+
+  - excerpt: "Please give a short succinct context to situate this chunk within the overall document for the purposes of improving search retrieval of the chunk."
+    context: "Claude 生成上下文前缀的 prompt"
+    commentary: |
+      这个 prompt 的设计有几个精妙之处:
+
+      1. **"short succinct"** — 限制输出长度（50-100 tokens），避免上下文前缀本身变成新的噪声
+      2. **"situate this chunk within the overall document"** — 明确目标是定位，不是总结或扩展
+      3. **"for the purposes of improving search retrieval"** — 让模型知道上下文的用途是检索优化，不是信息补充
+      4. **输入包含整个文档（<document>）+ 当前 chunk（<chunk>）** — 模型能看到全局上下文
+
+      **成本控制**: 使用 Claude 3 Haiku（而非 Opus/Sonnet）生成上下文，结合 Prompt Caching:
+      - 文档只加载一次到缓存
+      - 每个 chunk 只需传入 chunk 内容
+      - 实际成本: $1.02/百万文档 tokens — 极其低廉
+
+      **与 JIT 策略的关系**: 这是一种"预处理阶段的 JIT" — 在索引时（而非查询时）为每个 chunk 添加上下文。与 Effective Context Engineering 的 JIT 检索形成互补: 前者优化"找到什么"，后者优化"用什么"。
+
+    analogy: "就像图书馆给每本书贴标签 — 不是让读者自己翻遍书架（向量搜索），而是由一位经验丰富的管理员（Claude）提前阅读每本书，在封面上写一句'这本书讲的是 ACME 公司 2023 年 Q2 财报'。成本低廉，但搜索效率大大提升。"
+
+    qa_chain:
+      - q: "为什么不直接让 Claude 每次查询时重读整篇文档？"
+        a: "查询时的<strong>延迟和成本</strong>会非常高 — 每次查询都要把整篇文档发给模型。Contextual Retrieval 把这个工作前置到索引阶段，查询时只需要普通的向量检索，速度快几个数量级。"
+        depth: 0
+      - q: "Prompt Caching 是如何把成本降到 $1.02/百万 tokens 的？"
+        a: "关键在于<strong>文档只加载一次</strong>到缓存中。每个 chunk 处理时，文档部分从缓存读取（成本极低），只需传入 chunk 本身作为新内容。对于一篇文档切成 50 个 chunk 的场景，文档 tokens 的成本几乎为零。"
+        depth: 1
+      - q: "为什么选用 Haiku 而不是更强的 Sonnet 或 Opus？"
+        a: "上下文前缀生成是一个<strong>高度结构化的轻量任务</strong> — 只需要理解文档内容并提取定位信息。Haiku 在这类任务上与更强模型的差距很小，但成本和速度优势显著。工程上的原则: 任务越简单，模型越轻量。"
+        depth: 2
+
+    diagram: |
+      sequenceDiagram
+        participant Doc as 文档
+        participant Cache as Prompt Cache
+        participant Claude as Claude Haiku
+        participant Chunk as Chunk 1..N
+        Doc->>Cache: 首次加载文档（完整成本）
+        loop 对每个 chunk
+          Chunk->>Cache: 读取缓存的文档（低成本）
+          Cache->>Claude: 文档缓存 + 当前 chunk
+          Claude-->>Chunk: 返回上下文前缀
+        end
+
+    diagram_caption: "Prompt Caching 驱动的批量上下文前缀生成流程"
+
+    github_refs:
+      - name: "claude-cookbooks"
+        url: "https://github.com/anthropics/claude-cookbooks"
+        description: "包含 Prompt Caching 与 Contextual Retrieval 结合的成本优化示例"
+
+  - excerpt: "Contextual Embeddings reduced the top-20-chunk retrieval failure rate by 35% (5.7% → 3.7%). Combining Contextual Embeddings and Contextual BM25 reduced it by 49% (5.7% → 2.9%)."
+    context: "双技术叠加的性能数据"
+    image: "https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7f8d739e491fe6b3bae0e6a9c74e4083d760b88c9-3840x2160.png&w=3840&q=75"
+    image_caption: "检索失败率降低 49% — Contextual Embeddings + BM25 混合策略"
+    commentary: |
+      这组数据揭示了 RAG 优化的一个核心原则: 不同技术解决不同类型的检索失败:
+
+      **Contextual Embeddings 解决的失败**:
+      - 语义相似但缺少上下文的 chunk
+      - 例: 查询 "Python 异步编程" 无法匹配到只说 "使用 async/await" 的 chunk
+
+      **Contextual BM25 解决的失败**:
+      - 包含关键专有名词但不在用户查询词汇表中的 chunk
+      - 例: 查询 "revenue growth" 无法匹配到只说 "3% increase over prior quarter" 的 chunk
+
+      **叠加效应**: 两种技术覆盖的失败模式有约 30% 重叠，但各自独占 70%。叠加后，覆盖的失败模式接近全集。
+
+      **工程启示**: 不要只依赖一种检索策略。混合检索（语义 + 关键词 + 上下文增强）在所有数据集上都优于单一方法。这是一个"免费午餐"式的优化。
+
+    analogy: "就像用两种不同的筛子淘金 — 一个筛子按颜色找金子（语义嵌入），另一个按形状找金子（BM25 关键词）。单独使用都会漏掉一些金子，但两个筛子一起用，几乎不会遗漏。"
+
+    qa_chain:
+      - q: "Embeddings 和 BM25 分别擅长什么？"
+        a: "<strong>Embeddings</strong> 擅长语义相似性匹配 — '收入增长'和'营收提升'能匹配上。<strong>BM25</strong> 擅长精确关键词匹配 — 用户搜'ACME Corp'就能找到包含这个专有名词的 chunk。两者互补。"
+        depth: 0
+      - q: "为什么两者叠加是 49% 而不是简单相加？"
+        a: "因为两种技术解决的失败模式有<strong>约 30% 的重叠</strong>。Embeddings 单独降 35%，BM25 额外贡献了约 14% 的独有改善，总计 49%。这不是线性叠加，而是互补叠加。"
+        depth: 1
+      - q: "混合检索的分数融合（Embeddings + BM25）在实践中怎么实现？"
+        a: "通常用<strong>倒数排名融合（RRF）</strong>或<strong>加权线性组合</strong>。RRF 不需要归一化，直接对排名取倒数求和: score = 1/(k+rank_emb) + 1/(k+rank_bm25)。简单有效，且对超参不敏感。"
+        depth: 2
+
+    diagram: |
+      flowchart TD
+        subgraph 基线
+          A["检索失败率: 5.7%"]
+        end
+        subgraph 单一技术
+          B["Contextual Embeddings<br/>失败率: 3.7%<br/>降低 35%"]
+          C["Contextual BM25<br/>失败率: ~4.5%<br/>降低 ~20%"]
+        end
+        subgraph 混合叠加
+          D["CE + CBM25<br/>失败率: 2.9%<br/>降低 49%"]
+        end
+        A --> B
+        A --> C
+        B --> D
+        C --> D
+
+    diagram_caption: "Contextual Embeddings 与 Contextual BM25 的叠加效果 — 从 5.7% 降至 2.9%"
+
+    github_refs:
+      - name: "claude-cookbooks"
+        url: "https://github.com/anthropics/claude-cookbooks"
+        description: "包含混合检索（Embeddings + BM25）的 RRF 融合实现"
+
+  - excerpt: "Reranked Contextual Embedding and Contextual BM25 reduced the top-20-chunk retrieval failure rate by 67% (5.7% → 1.9%)."
+    context: "叠加 Reranking 的最终性能"
+    image: "https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F93a70cfbb9cca35bbd86ea0a23bdeeb699e8e58-3840x2160.png&w=3840&q=75"
+    image_caption: "三层叠加后检索失败率降低 67% — Reranking 精排效果"
+    commentary: |
+      Reranking 是第三层叠加优化:
+
+      **Reranking 的工作原理**:
+      1. 初始检索取 top-150 chunks（宽松匹配，高召回率）
+      2. Reranker 模型（如 Cohere）对每个 chunk 与查询的相关性打分
+      3. 只保留 top-20 高分 chunks（精确排序，高精确率）
+
+      **为什么 Reranking 能进一步提升**: 初始检索（向量 + BM25）是"快速粗排"，Reranking 是"慢速精排"。两者使用不同的相关性模型，互补性很强。
+
+      **三层的完整收益链**:
+      - 基线: 5.7% 失败率
+      - + Contextual Retrieval: 2.9%（降 49%）
+      - + Reranking: 1.9%（降 67%）
+
+      **延迟/成本权衡**: Reranking 增加约 100-200ms 延迟和额外 API 成本。文章建议根据场景权衡: 高价值查询（法律、医疗）值得 Reranking，实时聊天可能不需要。
+
+    analogy: "就像找工作筛选简历 — 先用关键词搜索和 AI 匹配快速筛出 150 份候选简历（粗排），再由 HR 仔细阅读每份简历的相关性，最终选出 20 份最匹配的（精排）。两步筛远比一步准。"
+
+    qa_chain:
+      - q: "Reranking 和初始检索有什么区别？"
+        a: "初始检索是<strong>快速粗排</strong> — 用向量相似度和 BM25 从海量数据中召回候选，追求速度。Reranking 是<strong>慢速精排</strong> — 用专门的交叉编码器模型逐一评估每个候选与查询的相关性，追求精度。"
+        depth: 0
+      - q: "为什么不直接用 Reranker 检索，而要先粗排再精排？"
+        a: "因为 Reranker 的<strong>交叉编码器需要对每对 (query, chunk) 做完整推理</strong>，复杂度是 O(N)。如果 N=100 万个 chunk，每次查询要跑 100 万次模型推理，完全不可接受。先粗排到 150 个再做精排，才是可行的方案。"
+        depth: 1
+      - q: "生产环境中 Reranking 的延迟和成本如何控制？"
+        a: "关键参数是<strong>粗排召回数</strong>。文章用 150，实际可根据延迟预算调整: 50-100 适合实时场景，200-300 适合离线分析。成本方面，Cohere Rerank API 按 token 计费，每次精排 150 个 chunk 约 $0.01-0.05。对于高价值查询（法律、医疗），这点成本完全值得。"
+        depth: 2
+
+    diagram: |
+      flowchart LR
+        Q["用户查询"] --> R1["粗排: 混合检索<br/>Embeddings + BM25"]
+        R1 -->|Top-150| RR["Reranker<br/>交叉编码器精排"]
+        RR -->|Top-20| F["最终结果<br/>失败率 1.9%"]
+        style Q fill:#e1f5fe
+        style F fill:#c8e6c9
+
+    diagram_caption: "三层叠加检索管道: 粗排 → 精排 → 最终结果，检索失败率从 5.7% 降至 1.9%"
+
+    github_refs:
+      - name: "claude-cookbooks"
+        url: "https://github.com/anthropics/claude-cookbooks"
+        description: "包含 Reranking 叠加 Contextual Retrieval 的端到端实现"
+
+  - excerpt: "Sometimes the simplest solution is the best. If your knowledge base is smaller than 200,000 tokens (about 500 pages of material), you can just include the entire knowledge base in the prompt."
+    context: "全文塞入提示词的简单方案"
+    commentary: |
+      Anthropic 在技术文章中坦诚推荐"最笨"方案，这种工程务实精神值得注意:
+
+      **适用条件**:
+      - 知识库 < 200K tokens（约 500 页）
+      - 使用 Prompt Caching 降低成本和延迟
+      - 检索准确率 = 100%（因为所有信息都在上下文中）
+
+      **与 Contextual Retrieval 的关系**: 这不是替代方案，而是不同规模的策略选择:
+      - < 200K tokens → 全文塞入（最简单、最准确）
+      - 200K-10M tokens → Contextual Retrieval（中等复杂度，高准确率）
+      - > 10M tokens → Contextual Retrieval + Reranking（最大规模）
+
+      这与 Effective Context Engineering 的核心思想完全一致: 选择匹配任务规模的策略，而非一味追求复杂方案。
+
+    analogy: "就像查地图 — 如果目的地就在隔壁小区，直接走过去就行（全文塞入）；如果在本市，用导航选路线（Contextual Retrieval）；如果跨省旅行，就需要详细规划+中转（Contextual Retrieval + Reranking）。工具的复杂度应该匹配问题的规模。"
+
+    qa_chain:
+      - q: "200K tokens 大概是多少内容？"
+        a: "大约<strong> 500 页文本</strong>，相当于 2-3 本普通书籍。对于很多企业内部知识库（产品手册、FAQ、政策文档），这个量级完全够用。"
+        depth: 0
+      - q: "全文塞入不会让模型'迷失在上下文中'吗？"
+        a: "确实存在这个风险 — 模型对<strong>中间位置信息的注意力会衰减</strong>（Lost in the Middle 现象）。但对于检索场景，模型只需要回答'根据以上内容...'，且用户查询通常指向特定段落，问题不大。Prompt Caching 进一步降低了重复阅读的成本。"
+        depth: 1
+      - q: "如何判断应该用全文塞入还是 Contextual Retrieval？"
+        a: "简单规则: <strong>全量 tokens 数 × 单次查询成本 < 可接受阈值</strong>就算全塞。实操上: 知识库 < 200K tokens 且更新不频繁（< 每天 1 次）→ 全文塞入 + Prompt Caching；超过这个量级 → 上 Contextual Retrieval 管道。此外，如果检索准确率要求极高（如法律合同），即使量不大也建议全文塞入以确保零遗漏。"
+        depth: 2
+
+    diagram: |
+      flowchart TD
+        S{"知识库大小?"}
+        S -->|"< 200K tokens"| A["全文塞入 Prompt<br/>准确率 100%"]
+        S -->|"200K - 10M tokens"| B["Contextual Retrieval<br/>准确率 ~97%"]
+        S -->|"> 10M tokens"| C["CR + Reranking<br/>准确率 ~98%"]
+        style A fill:#c8e6c9
+        style B fill:#fff9c4
+        style C fill:#ffccbc
+
+    diagram_caption: "根据知识库规模选择检索策略: 全文塞入 → Contextual Retrieval → CR + Reranking"
+
+    github_refs:
+      - name: "claude-cookbooks"
+        url: "https://github.com/anthropics/claude-cookbooks"
+        description: "Anthropic 官方 cookbook，包含基于 Prompt Caching 的全文塞入方案示例"

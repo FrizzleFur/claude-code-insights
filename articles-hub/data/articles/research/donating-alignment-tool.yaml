@@ -1,0 +1,40 @@
+title: "Donating Our Open-Source Alignment Tool"
+slug: "donating-alignment-tool"
+url: "https://www.anthropic.com/research/donating-alignment-tool"
+date: "2026-05-07"
+section: research
+authors: ["Anthropic Alignment Team"]
+category: C3
+subcategory: alignment
+tags: ["alignment", "open-source", "tool", "safety"]
+difficulty: L2
+format: reference
+reading_time_min: 10
+
+scores:
+  technical_depth: 6
+  actionability: 7
+  novelty: 5
+  impact: 7
+  educational_value: 6
+  timeliness: 8
+  reproducibility: 7
+
+overall_score: 6.4
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: []
+
+key_takeaways:
+  - "Anthropic 捐赠开源对齐工具"
+  - "推动 AI 安全研究的开放合作"
+
+mind_map: |
+  flowchart TD
+    A["Alignment Tool"] --> B["内容"]
+    B --> B1["开源对齐工具"]
+    B --> B2["社区贡献"]
+
+practice_ideas: []

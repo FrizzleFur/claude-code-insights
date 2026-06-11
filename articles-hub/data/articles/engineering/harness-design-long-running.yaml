@@ -1,0 +1,57 @@
+title: "Harness Design for Long-Running Application Development"
+slug: "harness-design-long-running"
+url: "https://www.anthropic.com/engineering/managed-agents"
+date: "2026-03-24"
+section: engineering
+authors: ["Anthropic"]
+category: C1
+subcategory: agent-harness
+tags: ["harness", "long-running", "managed-agents", "application-development"]
+difficulty: L3
+format: conceptual
+reading_time_min: 25
+
+scores:
+  technical_depth: 8
+  actionability: 7
+  novelty: 8
+  impact: 7
+  educational_value: 8
+  timeliness: 8
+  reproducibility: 6
+
+overall_score: 7.4
+
+related_github_projects:
+  - name: "claude-code"
+    url: "https://github.com/anthropics/claude-code"
+    relation: "official"
+    stars: 125000
+    description: "Claude Code implements harness patterns for long-running tasks"
+
+derived_practices: []
+
+prerequisites: ["effective-harnesses-agents"]
+follows_up: ["scaling-managed-agents"]
+
+key_takeaways:
+  - "长时间应用开发的 harness 设计原则"
+  - "如何平衡 Agent 自主性和人类监督"
+  - "Harness 中的假设会随模型改进而过时，需要持续更新"
+
+mind_map: |
+  flowchart TD
+    A["Harness Design"] --> B["挑战"]
+    B --> B1["长时间运行"]
+    B --> B2["上下文管理"]
+    B --> B3["假设过时"]
+    A --> C["设计原则"]
+    C --> C1["最小化假设"]
+    C --> C2["人类检查点"]
+    C --> C3["自适应策略"]
+
+practice_ideas:
+  - title: "设计长时间开发 Harness"
+    difficulty: "L3"
+    description: "为大型代码迁移项目设计 harness，包含阶段划分、检查点和回滚机制"
+    tech_stack: "Claude Code + Shell Scripts + Git"

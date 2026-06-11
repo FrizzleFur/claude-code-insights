@@ -1,0 +1,149 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Anthropic Article Score",
+  "description": "Anthropic 博客文章评分数据 schema",
+  "type": "object",
+  "required": ["title", "slug", "url", "date", "section", "authors", "category", "subcategory", "tags", "difficulty", "format", "reading_time_min", "scores", "overall_score", "key_takeaways", "mind_map", "practice_ideas"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "文章标题"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "URL 友好的短标识符"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "文章原始 URL"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "发布日期"
+    },
+    "section": {
+      "type": "string",
+      "enum": ["engineering", "research", "news"],
+      "description": "内容板块"
+    },
+    "authors": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "作者列表"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["C1", "C2", "C3", "C4", "C5"],
+      "description": "一级分类"
+    },
+    "subcategory": {
+      "type": "string",
+      "description": "二级分类"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "跨分类标签"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["L1", "L2", "L3"],
+      "description": "难度等级"
+    },
+    "format": {
+      "type": "string",
+      "enum": ["tutorial", "conceptual", "case-study", "reference", "research-paper"],
+      "description": "内容形式"
+    },
+    "reading_time_min": {
+      "type": "integer",
+      "minimum": 5,
+      "maximum": 120,
+      "description": "预计阅读时间(分钟)"
+    },
+    "scores": {
+      "type": "object",
+      "required": ["technical_depth", "actionability", "novelty", "impact", "educational_value", "timeliness", "reproducibility"],
+      "properties": {
+        "technical_depth": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "actionability": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "novelty": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "impact": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "educational_value": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "timeliness": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "reproducibility": { "type": "integer", "minimum": 1, "maximum": 10 }
+      },
+      "additionalProperties": false
+    },
+    "overall_score": {
+      "type": "number",
+      "minimum": 1.0,
+      "maximum": 10.0,
+      "description": "加权综合评分"
+    },
+    "related_github_projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "url", "relation", "description"],
+        "properties": {
+          "name": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "relation": { "type": "string", "enum": ["official", "community", "derived"] },
+          "stars": { "type": "integer" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "derived_practices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "path": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "前置文章 slug 列表"
+    },
+    "follows_up": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "后续文章 slug 列表"
+    },
+    "key_takeaways": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 3,
+      "description": "核心要点"
+    },
+    "mind_map": {
+      "type": "string",
+      "description": "Mermaid 格式的思维流程导图"
+    },
+    "practice_ideas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "difficulty", "description", "tech_stack"],
+        "properties": {
+          "title": { "type": "string" },
+          "difficulty": { "type": "string", "enum": ["L1", "L2", "L3"] },
+          "description": { "type": "string" },
+          "tech_stack": { "type": "string" }
+        }
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": false
+}

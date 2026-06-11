@@ -1,0 +1,49 @@
+title: "Quantifying Infrastructure Noise in Agentic Coding Evals"
+slug: "infrastructure-noise-evals"
+url: "https://www.anthropic.com/engineering/quantifying-infrastructure-noise-in-agentic-coding-evals"
+date: "2026-02-05"
+section: engineering
+authors: ["Anthropic"]
+category: C1
+subcategory: agent-eval
+tags: ["eval", "infrastructure", "noise", "SWE-bench", "benchmark"]
+difficulty: L3
+format: research-paper
+reading_time_min: 15
+
+scores:
+  technical_depth: 9
+  actionability: 5
+  novelty: 8
+  impact: 6
+  educational_value: 7
+  timeliness: 7
+  reproducibility: 5
+
+overall_score: 6.7
+
+related_github_projects: []
+derived_practices: []
+prerequisites: ["swe-bench-verified", "demystifying-evals-agents"]
+follows_up: []
+
+key_takeaways:
+  - "基础设施噪声（网络延迟、文件系统状态）显著影响 Agent 评估结果"
+  - "量化分析了噪声对 SWE-bench 等基准测试的影响"
+  - "对评估方法论的重要贡献：需要区分模型能力和基础设施影响"
+
+mind_map: |
+  flowchart TD
+    A["Infrastructure Noise"] --> B["噪声来源"]
+    B --> B1["网络延迟"]
+    B --> B2["文件系统状态"]
+    B --> B3["并发竞争"]
+    A --> C["影响"]
+    C --> C1["评估结果波动"]
+    C --> C2["模型能力误判"]
+
+practice_ideas:
+  - title: "在评估中隔离基础设施噪声"
+    difficulty: "L3"
+    description: "设计对照实验，量化基础设施因素对 Agent 评估的影响"
+    tech_stack: "Python + Docker + SWE-bench"

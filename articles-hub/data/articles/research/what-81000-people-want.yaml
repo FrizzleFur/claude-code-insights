@@ -1,0 +1,45 @@
+title: "What 81,000 People Want from AI"
+slug: "what-81000-people-want"
+url: "https://www.anthropic.com/research/what-people-want-from-ai"
+date: "2026-03-18"
+section: research
+authors: ["Anthropic Societal Impacts Team"]
+category: C3
+subcategory: societal-impacts
+tags: ["survey", "user-research", "societal-impact", "qualitative-study"]
+difficulty: L1
+format: case-study
+reading_time_min: 25
+
+scores:
+  technical_depth: 6
+  actionability: 5
+  novelty: 7
+  impact: 8
+  educational_value: 7
+  timeliness: 8
+  reproducibility: 6
+
+overall_score: 6.7
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: ["what-81000-people-economics"]
+
+key_takeaways:
+  - "81,000 人参与的 AI 使用调查——最大规模的多语言定性研究"
+  - "揭示了用户对 AI 的期望、梦想和恐惧"
+  - "对 AI 产品设计和社会影响研究的重要参考"
+
+mind_map: |
+  flowchart TD
+    A["81K People Survey"] --> B["方法论"]
+    B --> B1["多语言定性研究"]
+    B --> B2["81,000 参与者"]
+    A --> C["发现"]
+    C --> C1["用户期望"]
+    C --> C2["恐惧"]
+    C --> C3["使用模式"]
+
+practice_ideas: []

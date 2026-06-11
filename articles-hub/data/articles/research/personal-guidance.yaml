@@ -1,0 +1,40 @@
+title: "How People Ask Claude for Personal Guidance"
+slug: "personal-guidance"
+url: "https://www.anthropic.com/research/how-people-ask-claude-for-personal-guidance"
+date: "2026-04-30"
+section: research
+authors: ["Anthropic Societal Impacts Team"]
+category: C3
+subcategory: societal-impacts
+tags: ["personal-guidance", "user-behavior", "societal-impact"]
+difficulty: L1
+format: case-study
+reading_time_min: 15
+
+scores:
+  technical_depth: 5
+  actionability: 4
+  novelty: 6
+  impact: 6
+  educational_value: 6
+  timeliness: 8
+  reproducibility: 4
+
+overall_score: 5.5
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: []
+
+key_takeaways:
+  - "分析用户如何向 Claude 寻求个人指导"
+  - "对 AI 在个人决策中角色的社会学研究"
+
+mind_map: |
+  flowchart TD
+    A["Personal Guidance"] --> B["发现"]
+    B --> B1["使用模式"]
+    B --> B2["社会影响"]
+
+practice_ideas: []

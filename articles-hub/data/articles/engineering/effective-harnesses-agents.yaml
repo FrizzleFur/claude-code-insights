@@ -1,0 +1,52 @@
+title: "Effective Harnesses for Long-Running Agents"
+slug: "effective-harnesses-agents"
+url: "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents"
+date: "2025-11-26"
+section: engineering
+authors: ["Anthropic"]
+category: C1
+subcategory: agent-harness
+tags: ["harness", "long-running", "agent", "context-management", "compaction"]
+difficulty: L3
+format: conceptual
+reading_time_min: 20
+
+scores:
+  technical_depth: 8
+  actionability: 7
+  novelty: 7
+  impact: 8
+  educational_value: 8
+  timeliness: 7
+  reproducibility: 6
+
+overall_score: 7.3
+
+related_github_projects: []
+
+derived_practices: []
+
+prerequisites: ["building-effective-agents"]
+follows_up: ["harness-design-long-running", "scaling-managed-agents"]
+
+key_takeaways:
+  - "长时间运行的 Agent 需要 harness 来管理上下文、状态和执行"
+  - "Harness 的核心职责: 上下文压缩、状态持久化、错误恢复"
+  - "文章定义了 harness 设计的通用框架和最佳实践"
+
+mind_map: |
+  flowchart TD
+    A["Effective Harnesses"] --> B["核心问题"]
+    B --> B1["Agent 长时间运行"]
+    B --> B2["上下文溢出"]
+    B --> B3["错误累积"]
+    A --> C["Harness 职责"]
+    C --> C1["上下文压缩"]
+    C --> C2["状态持久化"]
+    C --> C3["错误恢复"]
+
+practice_ideas:
+  - title: "为长任务 Agent 实现 Harness"
+    difficulty: "L3"
+    description: "构建包含自动压缩、检查点保存和错误恢复的 Agent 执行框架"
+    tech_stack: "Python + Claude API + File System"

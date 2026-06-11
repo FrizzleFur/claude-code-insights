@@ -1,0 +1,43 @@
+title: "Natural Language Autoencoders: Turning Claude's Thoughts into Text"
+slug: "natural-language-autoencoders"
+url: "https://www.anthropic.com/research/natural-language-autoencoders"
+date: "2026-05-07"
+section: research
+authors: ["Anthropic Interpretability Team"]
+category: C3
+subcategory: interpretability
+tags: ["interpretability", "autoencoder", "features", "transparency"]
+difficulty: L3
+format: research-paper
+reading_time_min: 20
+
+scores:
+  technical_depth: 9
+  actionability: 4
+  novelty: 9
+  impact: 7
+  educational_value: 7
+  timeliness: 9
+  reproducibility: 4
+
+overall_score: 7.0
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: []
+
+key_takeaways:
+  - "用自然语言自编码器将 Claude 的内部表征转换为可读文本"
+  - "可解释性研究的重大突破"
+
+mind_map: |
+  flowchart TD
+    A["NL Autoencoders"] --> B["技术"]
+    B --> B1["内部特征 → 文本"]
+    B --> B2["自编码器"]
+    A --> C["意义"]
+    C --> C1["模型透明度"]
+    C --> C2["安全审计"]
+
+practice_ideas: []

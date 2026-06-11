@@ -1,0 +1,56 @@
+title: "Building a C Compiler with a Team of Parallel Claudes"
+slug: "c-compiler-parallel-claudes"
+url: "https://www.anthropic.com/engineering/building-a-c-compiler-with-a-team-of-parallel-claudes"
+date: "2026-02-05"
+section: engineering
+authors: ["Anthropic"]
+category: C1
+subcategory: multi-agent
+tags: ["multi-agent", "parallel", "compiler", "coding-agent", "fan-out"]
+difficulty: L2
+format: case-study
+reading_time_min: 20
+
+scores:
+  technical_depth: 7
+  actionability: 7
+  novelty: 8
+  impact: 7
+  educational_value: 8
+  timeliness: 8
+  reproducibility: 7
+
+overall_score: 7.3
+
+related_github_projects:
+  - name: "claude-code"
+    url: "https://github.com/anthropics/claude-code"
+    relation: "official"
+    stars: 125000
+    description: "Claude Code used for parallel agent coordination"
+
+derived_practices: []
+prerequisites: ["building-effective-agents", "claude-code-best-practices"]
+follows_up: ["scaling-managed-agents"]
+
+key_takeaways:
+  - "用多个并行 Claude 实例协作构建 C 编译器"
+  - "Fan-out 模式: 将编译器按模块分解，每个 Agent 独立实现一个模块"
+  - "关键挑战: 接口一致性、模块集成、测试覆盖"
+
+mind_map: |
+  flowchart TD
+    A["C Compiler with Parallel Claudes"] --> B["架构"]
+    B --> B1["按模块分解"]
+    B --> B2["并行实现"]
+    B --> B3["集成测试"]
+    A --> C["经验"]
+    C --> C1["接口定义先行"]
+    C --> C2["独立上下文避免干扰"]
+    C --> C3["集成需要人工指导"]
+
+practice_ideas:
+  - title: "用并行 Agent 构建大型项目"
+    difficulty: "L2"
+    description: "将项目分解为独立模块，每个 worktree 中运行一个 Claude Code 实例并行开发"
+    tech_stack: "Claude Code + Git Worktree"

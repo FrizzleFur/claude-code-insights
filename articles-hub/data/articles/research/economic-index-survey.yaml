@@ -1,0 +1,40 @@
+title: "Announcing the Anthropic Economic Index Survey"
+slug: "economic-index-survey"
+url: "https://www.anthropic.com/research/anthropic-economic-index-survey"
+date: "2026-04-22"
+section: research
+authors: ["Anthropic Economic Research Team"]
+category: C5
+subcategory: economic-research
+tags: ["economics", "survey", "index", "AI-impact"]
+difficulty: L1
+format: reference
+reading_time_min: 10
+
+scores:
+  technical_depth: 4
+  actionability: 5
+  novelty: 5
+  impact: 6
+  educational_value: 5
+  timeliness: 8
+  reproducibility: 4
+
+overall_score: 5.1
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: ["what-81000-people-economics"]
+
+key_takeaways:
+  - "Anthropic 发布经济影响指数调查"
+  - "衡量 AI 对劳动市场和经济的影响"
+
+mind_map: |
+  flowchart TD
+    A["Economic Index"] --> B["内容"]
+    B --> B1["AI 经济影响"]
+    B --> B2["劳动市场"]
+
+practice_ideas: []

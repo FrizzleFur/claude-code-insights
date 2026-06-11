@@ -1,0 +1,56 @@
+title: "Raising the Bar on SWE-Bench Verified with Claude 3.5 Sonnet"
+slug: "swe-bench-verified"
+url: "https://www.anthropic.com/engineering/raising-the-bar-on-swe-bench-verified"
+date: "2025-01-06"
+section: engineering
+authors: ["Anthropic"]
+category: C1
+subcategory: agent-eval
+tags: ["SWE-bench", "benchmark", "eval", "coding-agent", "claude-3.5-sonnet"]
+difficulty: L3
+format: case-study
+reading_time_min: 20
+
+scores:
+  technical_depth: 8
+  actionability: 6
+  novelty: 5
+  impact: 8
+  educational_value: 7
+  timeliness: 5
+  reproducibility: 6
+
+overall_score: 6.6
+
+related_github_projects:
+  - name: "claude-code"
+    url: "https://github.com/anthropics/claude-code"
+    relation: "official"
+    stars: 125000
+    description: "Claude Code's SWE-bench performance"
+
+derived_practices: []
+
+prerequisites: ["building-effective-agents"]
+follows_up: ["demystifying-evals-agents"]
+
+key_takeaways:
+  - "Claude 3.5 Sonnet 在 SWE-bench Verified 上达到 state-of-the-art 0.623"
+  - "Think Tool 贡献了 1.6% 的性能提升"
+  - "工具描述优化显著降低了错误率"
+
+mind_map: |
+  flowchart TD
+    A["SWE-bench Verified"] --> B["关键改进"]
+    B --> B1["Think Tool +1.6%"]
+    B --> B2["工具描述优化"]
+    B --> B3["Agent 循环改进"]
+    A --> C["经验"]
+    C --> C1["简单模式胜过复杂框架"]
+    C --> C2["验证反馈循环至关重要"]
+
+practice_ideas:
+  - title: "在 SWE-bench 上评估自定义 Agent"
+    difficulty: "L3"
+    description: "搭建 SWE-bench 评估环境，测试不同 Agent 配置的性能"
+    tech_stack: "Python + Claude API + SWE-bench"

@@ -1,0 +1,43 @@
+title: "Teaching Claude Why"
+slug: "teaching-claude-why"
+url: "https://www.anthropic.com/research/teaching-claude-why"
+date: "2026-05-08"
+section: research
+authors: ["Anthropic Alignment Team"]
+category: C3
+subcategory: alignment
+tags: ["alignment", "agentic-misalignment", "safety", "training"]
+difficulty: L2
+format: research-paper
+reading_time_min: 20
+
+scores:
+  technical_depth: 8
+  actionability: 5
+  novelty: 9
+  impact: 9
+  educational_value: 8
+  timeliness: 9
+  reproducibility: 5
+
+overall_score: 7.5
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: []
+
+key_takeaways:
+  - "研究如何减少 Agent 的对齐偏差（agentic misalignment）"
+  - "通过教导 Claude '为什么' 某些行为是错误的来改善安全对齐"
+  - "重要的安全研究方向"
+
+mind_map: |
+  flowchart TD
+    A["Teaching Claude Why"] --> B["问题"]
+    B --> B1["Agent 对齐偏差"]
+    A --> C["方法"]
+    C --> C1["教导原因而非规则"]
+    C --> C2["理解为什么"]
+
+practice_ideas: []

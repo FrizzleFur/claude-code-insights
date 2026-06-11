@@ -1,0 +1,133 @@
+{
+  "last_updated": "2026-05-21",
+  "source": "https://github.com/anthropics",
+  "projects": [
+    {
+      "name": "skills",
+      "url": "https://github.com/anthropics/skills",
+      "stars": 139000,
+      "description": "Agent Skills - 公共仓库",
+      "language": "Python",
+      "relation": "official",
+      "related_articles": ["agent-skills", "building-effective-agents", "scaling-managed-agents"]
+    },
+    {
+      "name": "claude-code",
+      "url": "https://github.com/anthropics/claude-code",
+      "stars": 125000,
+      "description": "Agentic coding tool - 终端中的 AI 编程助手",
+      "language": "Shell",
+      "relation": "official",
+      "related_articles": ["claude-code-best-practices", "claude-code-auto-mode", "beyond-permission-prompts", "effective-context-engineering"]
+    },
+    {
+      "name": "claude-cookbooks",
+      "url": "https://github.com/anthropics/claude-cookbooks",
+      "stars": 43500,
+      "description": "Claude 使用示例和指南集合",
+      "language": "Jupyter Notebook",
+      "relation": "official",
+      "related_articles": ["building-effective-agents", "advanced-tool-use", "contextual-retrieval"]
+    },
+    {
+      "name": "prompt-eng-interactive-tutorial",
+      "url": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
+      "stars": 35800,
+      "description": "Anthropic 官方 Prompt 工程交互式教程",
+      "language": "Jupyter Notebook",
+      "relation": "official",
+      "related_articles": ["writing-effective-tools"]
+    },
+    {
+      "name": "financial-services",
+      "url": "https://github.com/anthropics/financial-services",
+      "stars": 26300,
+      "description": "金融服务行业示例",
+      "language": "Python",
+      "relation": "official",
+      "related_articles": ["building-effective-agents"]
+    },
+    {
+      "name": "courses",
+      "url": "https://github.com/anthropics/courses",
+      "stars": 21500,
+      "description": "Anthropic 教育课程",
+      "language": "Jupyter Notebook",
+      "relation": "official",
+      "related_articles": ["building-effective-agents", "advanced-tool-use"]
+    },
+    {
+      "name": "claude-plugins-official",
+      "url": "https://github.com/anthropics/claude-plugins-official",
+      "stars": 21000,
+      "description": "官方 Claude Code 插件目录",
+      "language": "Python",
+      "relation": "official",
+      "related_articles": ["agent-skills"]
+    },
+    {
+      "name": "knowledge-work-plugins",
+      "url": "https://github.com/anthropics/knowledge-work-plugins",
+      "stars": 12400,
+      "description": "知识工作者插件",
+      "language": "Python",
+      "relation": "official",
+      "related_articles": ["agent-skills"]
+    },
+    {
+      "name": "claude-code-action",
+      "url": "https://github.com/anthropics/claude-code-action",
+      "stars": 7700,
+      "description": "Claude Code GitHub Action",
+      "language": "TypeScript",
+      "relation": "official",
+      "related_articles": ["claude-code-best-practices"]
+    },
+    {
+      "name": "claude-for-legal",
+      "url": "https://github.com/anthropics/claude-for-legal",
+      "stars": 7400,
+      "description": "法律工作流插件",
+      "language": "Python",
+      "relation": "official",
+      "related_articles": ["building-effective-agents"]
+    },
+    {
+      "name": "claude-agent-sdk-python",
+      "url": "https://github.com/anthropics/claude-agent-sdk-python",
+      "stars": 7000,
+      "description": "Claude Agent SDK Python 版",
+      "language": "Python",
+      "relation": "official",
+      "related_articles": ["advanced-tool-use", "building-effective-agents", "multi-agent-research-system"]
+    },
+    {
+      "name": "claude-agent-sdk-typescript",
+      "url": "https://github.com/anthropics/claude-agent-sdk-typescript",
+      "stars": 1500,
+      "description": "Claude Agent SDK TypeScript 版",
+      "language": "Shell",
+      "relation": "official",
+      "related_articles": ["advanced-tool-use", "building-effective-agents"]
+    },
+    {
+      "name": "claude-quickstarts",
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "stars": null,
+      "description": "Claude 快速入门项目集合",
+      "language": null,
+      "relation": "official",
+      "related_articles": ["advanced-tool-use", "building-effective-agents"]
+    },
+    {
+      "name": "html-effectiveness",
+      "url": "https://github.com/anthropics/html-effectiveness",
+      "stars": null,
+      "description": "HTML 作为 AI 输出格式的 20 个示例",
+      "language": "HTML",
+      "relation": "derived",
+      "related_articles": ["building-effective-agents"],
+      "local_path": "../html-effectiveness"
+    }
+  ]
+}

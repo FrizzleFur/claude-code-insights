@@ -1,0 +1,62 @@
+title: "Equipping Agents for the Real World with Agent Skills"
+slug: "agent-skills"
+url: "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills"
+date: "2025-10-16"
+section: engineering
+authors: ["Anthropic"]
+category: C1
+subcategory: agent-skills
+tags: ["agent-skills", "skills", "claude-code", "procedural-knowledge", "automation"]
+difficulty: L2
+format: conceptual
+reading_time_min: 20
+
+scores:
+  technical_depth: 7
+  actionability: 8
+  novelty: 7
+  impact: 8
+  educational_value: 8
+  timeliness: 7
+  reproducibility: 8
+
+overall_score: 7.6
+
+related_github_projects:
+  - name: "skills"
+    url: "https://github.com/anthropics/skills"
+    relation: "official"
+    stars: 139000
+    description: "Official Agent Skills repository"
+  - name: "claude-plugins-official"
+    url: "https://github.com/anthropics/claude-plugins-official"
+    relation: "official"
+    stars: 21000
+    description: "Official plugins directory bundling skills"
+
+derived_practices: []
+
+prerequisites: ["building-effective-agents", "claude-code-best-practices"]
+follows_up: ["scaling-managed-agents"]
+
+key_takeaways:
+  - "Agent Skills = 领域特定的过程性知识 + 工作流自动化"
+  - "Skills 让 Agent 超越通用能力，获得组织特定的操作知识"
+  - "SKILL.md 定义技能元数据和指令，Claude 按需加载不污染全局上下文"
+
+mind_map: |
+  flowchart TD
+    A["Agent Skills"] --> B["核心概念"]
+    B --> B1["过程性知识"]
+    B --> B2["按需加载"]
+    B --> B3["SKILL.md 格式"]
+    A --> C["应用"]
+    C --> C1["团队工作流"]
+    C --> C2["代码规范"]
+    C --> C3["部署流程"]
+
+practice_ideas:
+  - title: "创建自定义 Agent Skill"
+    difficulty: "L1"
+    description: "为团队常见操作创建 SKILL.md，Claude Code 通过 /skill-name 调用"
+    tech_stack: "Claude Code + SKILL.md"

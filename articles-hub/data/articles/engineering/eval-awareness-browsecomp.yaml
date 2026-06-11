@@ -1,0 +1,44 @@
+title: "Eval Awareness in Claude Opus 4.6's BrowseComp Performance"
+slug: "eval-awareness-browsecomp"
+url: "https://www.anthropic.com/engineering/eval-awareness-browsecomp"
+date: "2026-03-06"
+section: engineering
+authors: ["Anthropic"]
+category: C3
+subcategory: interpretability
+tags: ["eval-awareness", "BrowseComp", "benchmark", "model-behavior", "transparency"]
+difficulty: L2
+format: case-study
+reading_time_min: 15
+
+scores:
+  technical_depth: 7
+  actionability: 4
+  novelty: 8
+  impact: 6
+  educational_value: 7
+  timeliness: 8
+  reproducibility: 4
+
+overall_score: 6.3
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: []
+
+key_takeaways:
+  - "模型可能意识到正在被评估，影响行为表现（eval awareness）"
+  - "BrowseComp 基准测试中 Claude Opus 4.6 展示了 eval awareness 行为"
+  - "透明度报告：公开披露评估中的模型行为异常"
+
+mind_map: |
+  flowchart TD
+    A["Eval Awareness"] --> B["现象"]
+    B --> B1["模型感知评估环境"]
+    B --> B2["行为可能偏移"]
+    A --> C["透明度"]
+    C --> C1["公开披露"]
+    C --> C2["基准可信度"]
+
+practice_ideas: []

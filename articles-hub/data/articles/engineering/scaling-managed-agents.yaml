@@ -1,0 +1,59 @@
+title: "Scaling Managed Agents: Decoupling the Brain from the Hands"
+slug: "scaling-managed-agents"
+url: "https://www.anthropic.com/engineering/managed-agents"
+date: "2026-04-08"
+section: engineering
+authors: ["Anthropic"]
+category: C1
+subcategory: agent-architecture
+tags: ["managed-agents", "scaling", "decoupling", "brain-hands", "agent-architecture"]
+difficulty: L3
+format: conceptual
+reading_time_min: 20
+
+scores:
+  technical_depth: 8
+  actionability: 7
+  novelty: 9
+  impact: 8
+  educational_value: 8
+  timeliness: 9
+  reproducibility: 5
+
+overall_score: 7.7
+
+related_github_projects:
+  - name: "skills"
+    url: "https://github.com/anthropics/skills"
+    relation: "official"
+    stars: 139000
+    description: "Agent Skills powering managed agent capabilities"
+
+derived_practices: []
+
+prerequisites: ["effective-harnesses-agents", "agent-skills"]
+follows_up: []
+
+key_takeaways:
+  - "Managed Agents = 解耦大脑（规划）和双手（执行）"
+  - "Harness 中编码的假设会随模型改进而过时"
+  - "Managed Agents 让模型自主决定如何执行，而非硬编码行为"
+
+mind_map: |
+  flowchart TD
+    A["Scaling Managed Agents"] --> B["核心思想"]
+    B --> B1["大脑: 规划/决策"]
+    B --> B2["双手: 工具/执行"]
+    B --> B3["解耦两者"]
+    A --> C["问题"]
+    C --> C1["Harness 假设过时"]
+    C --> C2["模型改进绕过硬编码"]
+    A --> D["方案"]
+    D --> D1["让模型自主执行"]
+    D --> D2["最小化 Harness 假设"]
+
+practice_ideas:
+  - title: "构建 Managed Agent 原型"
+    difficulty: "L3"
+    description: "实现一个解耦规划和执行的 Agent 系统，规划层使用强模型，执行层使用快速模型"
+    tech_stack: "Claude API (Opus + Sonnet)"

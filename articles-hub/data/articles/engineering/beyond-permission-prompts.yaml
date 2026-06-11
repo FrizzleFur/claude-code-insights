@@ -1,0 +1,61 @@
+title: "Making Claude Code More Secure and Autonomous with Sandboxing"
+slug: "beyond-permission-prompts"
+url: "https://www.anthropic.com/engineering/claude-code-sandboxing"
+date: "2025-10-20"
+section: engineering
+authors: ["David Dworken", "Oliver Weller-Davies"]
+category: C4
+subcategory: claude-code
+tags: ["claude-code", "security", "sandboxing", "filesystem-isolation", "network-isolation"]
+difficulty: L2
+format: tutorial
+reading_time_min: 15
+
+scores:
+  technical_depth: 8
+  actionability: 9
+  novelty: 7
+  impact: 8
+  educational_value: 8
+  timeliness: 7
+  reproducibility: 9
+
+overall_score: 8.0
+
+related_github_projects:
+  - name: "claude-code"
+    url: "https://github.com/anthropics/claude-code"
+    relation: "official"
+    stars: 125000
+    description: "Sandboxing feature implemented in Claude Code"
+
+derived_practices: []
+
+prerequisites: ["claude-code-best-practices"]
+follows_up: ["claude-code-auto-mode"]
+
+key_takeaways:
+  - "沙箱化减少 84% 的权限提示，同时提高安全性"
+  - "文件系统隔离 + 网络隔离缺一不可: 仅文件隔离可被利用泄露 SSH 密钥"
+  - "基于 OS 级原语: Linux bubblewrap + macOS seatbelt"
+  - "Claude Code on the Web: 云端隔离沙箱 + Git 代理保护凭证"
+  - "沙箱运行时已开源，其他 Agent 团队可直接集成"
+
+mind_map: |
+  flowchart TD
+    A["Beyond Permission Prompts"] --> B["沙箱化策略"]
+    B --> B1["文件系统隔离<br/>限制读写目录"]
+    B --> B2["网络隔离<br/>限制连接域名"]
+    B1 --> B1a["Linux: bubblewrap"]
+    B1 --> B1b["macOS: seatbelt"]
+    B2 --> B2a["Unix Socket 代理"]
+    B --> C["应用场景"]
+    C --> C1["本地沙箱 Bash<br/>减少权限提示"]
+    C --> C2["云端 Claude Code<br/>隔离 VM 执行"]
+    C2 --> C2a["Git 代理服务<br/>凭证不进沙箱"]
+
+practice_ideas:
+  - title: "为 Agent 添加沙箱隔离"
+    difficulty: "L2"
+    description: "集成 Anthropic 开源沙箱运行时，限制 Agent 的文件系统和网络访问范围"
+    tech_stack: "Python/TypeScript + OS Sandbox API"

@@ -1,0 +1,43 @@
+title: "Project Vend: Phase Two"
+slug: "project-vend-phase-two"
+url: "https://www.anthropic.com/research/project-vend-phase-two"
+date: "2025-12-18"
+section: research
+authors: ["Anthropic"]
+category: C3
+subcategory: societal-impacts
+tags: ["agent", "autonomous", "vending", "real-world", "experiment"]
+difficulty: L1
+format: case-study
+reading_time_min: 20
+
+scores:
+  technical_depth: 5
+  actionability: 4
+  novelty: 6
+  impact: 6
+  educational_value: 6
+  timeliness: 6
+  reproducibility: 3
+
+overall_score: 5.1
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: ["project-deal"]
+
+key_takeaways:
+  - "AI 店主运营办公室小卖部的第二阶段实验"
+  - "探索 AI 在复杂真实世界任务中的表现"
+
+mind_map: |
+  flowchart TD
+    A["Project Vend Phase 2"] --> B["实验"]
+    B --> B1["AI 店主"]
+    B --> B2["真实交易"]
+    A --> C["发现"]
+    C --> C1["长期运营能力"]
+    C --> C2["经济决策"]
+
+practice_ideas: []

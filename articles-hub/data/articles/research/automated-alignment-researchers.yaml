@@ -1,0 +1,43 @@
+title: "Automated Alignment Researchers: Using LLMs to Scale Scalable Oversight"
+slug: "automated-alignment-researchers"
+url: "https://www.anthropic.com/research/automated-alignment-researchers"
+date: "2026-04-14"
+section: research
+authors: ["Anthropic Alignment Team"]
+category: C3
+subcategory: alignment
+tags: ["alignment", "automated-research", "scalable-oversight", "LLM"]
+difficulty: L3
+format: research-paper
+reading_time_min: 25
+
+scores:
+  technical_depth: 9
+  actionability: 5
+  novelty: 8
+  impact: 8
+  educational_value: 7
+  timeliness: 8
+  reproducibility: 5
+
+overall_score: 7.1
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: []
+
+key_takeaways:
+  - "用 LLM 自动化对齐研究，扩展可扩展监督"
+  - "AI 辅助 AI 安全研究的重要方向"
+
+mind_map: |
+  flowchart TD
+    A["Automated Alignment"] --> B["方法"]
+    B --> B1["LLM 做对齐研究"]
+    B --> B2["可扩展监督"]
+    A --> C["意义"]
+    C --> C1["安全研究加速"]
+    C --> C2["自我改进循环"]
+
+practice_ideas: []

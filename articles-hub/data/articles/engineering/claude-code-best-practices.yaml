@@ -1,0 +1,82 @@
+title: "Claude Code: Best Practices for Agentic Coding"
+slug: "claude-code-best-practices"
+url: "https://www.anthropic.com/engineering/claude-code-best-practices"
+date: "2025-04-18"
+section: engineering
+authors: ["Anthropic"]
+category: C2
+subcategory: coding-best-practices
+tags: ["claude-code", "agentic-coding", "CLAUDE.md", "context-management", "subagent", "skills", "hooks"]
+difficulty: L1
+format: reference
+reading_time_min: 35
+
+scores:
+  technical_depth: 7
+  actionability: 10
+  novelty: 5
+  impact: 10
+  educational_value: 9
+  timeliness: 7
+  reproducibility: 10
+
+overall_score: 8.3
+
+related_github_projects:
+  - name: "claude-code"
+    url: "https://github.com/anthropics/claude-code"
+    relation: "official"
+    stars: 125000
+    description: "Claude Code itself - the tool these practices describe"
+
+derived_practices: []
+
+prerequisites: []
+follows_up: ["beyond-permission-prompts", "effective-context-engineering"]
+
+key_takeaways:
+  - "核心约束: context window 会满，性能会降，管理上下文是第一要务"
+  - "给 Claude 验证手段: 测试、截图、lint 命令——能自我验证的 Agent 表现远超不能的"
+  - "工作流四阶段: 探索 → 规划(Plan Mode) → 实现 → 提交"
+  - "CLAUDE.md 最佳实践: 只放 Claude 猜不到的，不放进去了反而更好的不写"
+  - "上下文管理: /clear 频繁使用，/compact 精确控制，子 Agent 探索代码库不污染主上下文"
+  - "并行扩展: worktree 隔离 / 多 session / fan-out 迁移 / auto mode 自主运行"
+  - "常见失败模式: 厨房水槽 session、过度纠正、过度 CLAUDE.md、信任但不验证"
+
+mind_map: |
+  flowchart TD
+    A["Claude Code Best Practices"] --> B["上下文管理"]
+    A --> C["工作流"]
+    A --> D["配置"]
+    A --> E["并行扩展"]
+    A --> F["常见陷阱"]
+    B --> B1["验证手段优先"]
+    B --> B2["/clear 频繁使用"]
+    B --> B3["子 Agent 探索"]
+    B --> B4["/compact 精确控制"]
+    C --> C1["探索 → 规划 → 实现 → 提交"]
+    C --> C2["Plan Mode 分离思考"]
+    D --> D1["CLAUDE.md: 简洁精炼"]
+    D --> D2["Skills: 按需加载"]
+    D --> D3["Hooks: 确定性保证"]
+    D --> D4["权限: auto/allowlist/sandbox"]
+    E --> E1["Worktree 隔离"]
+    E --> E2["多 session 协作"]
+    E --> E3["Fan-out 批处理"]
+    F --> F1["厨房水桶 session"]
+    F --> F2["过度 CLAUDE.md"]
+    F --> F3["信任但不验证"]
+
+practice_ideas:
+  - title: "优化项目的 CLAUDE.md"
+    difficulty: "L1"
+    description: "审视现有 CLAUDE.md，删除 Claude 能自行推断的规则，保留仅无法从代码推断的约束"
+    tech_stack: "Claude Code"
+  - title: "创建自定义 Skill 工作流"
+    difficulty: "L1"
+    description: "为团队常用流程创建可复用的 Skill（如 fix-issue、create-pr），通过 /skill-name 调用"
+    tech_stack: "Claude Code + SKILL.md"
+  - title: "实现 Writer/Reviewer 双 Session 模式"
+    difficulty: "L2"
+    description: "一个 session 写代码，另一个 fresh session 审查，避免代码审查被上下文偏见影响"
+    tech_stack: "Claude Code + Worktree"

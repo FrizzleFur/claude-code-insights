@@ -1,0 +1,39 @@
+title: "Focus Areas for The Anthropic Institute"
+slug: "anthropic-institute-focus"
+url: "https://www.anthropic.com/research/anthropic-institute-focus-areas"
+date: "2026-05-07"
+section: research
+authors: ["Anthropic Policy Team"]
+category: C5
+subcategory: policy
+tags: ["institute", "policy", "focus-areas"]
+difficulty: L1
+format: reference
+reading_time_min: 10
+
+scores:
+  technical_depth: 3
+  actionability: 3
+  novelty: 3
+  impact: 5
+  educational_value: 4
+  timeliness: 8
+  reproducibility: 3
+
+overall_score: 3.9
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: []
+
+key_takeaways:
+  - "Anthropic Institute 的重点研究领域公布"
+
+mind_map: |
+  flowchart TD
+    A["Institute Focus"] --> B["领域"]
+    B --> B1["政策研究"]
+    B --> B2["安全重点"]
+
+practice_ideas: []

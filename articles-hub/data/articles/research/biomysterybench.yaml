@@ -1,0 +1,40 @@
+title: "Evaluating Claude's Bioinformatics Research Capabilities with BioMysteryBench"
+slug: "biomysterybench"
+url: "https://www.anthropic.com/research/biomysterybench"
+date: "2026-04-29"
+section: research
+authors: ["Anthropic Science Team"]
+category: C3
+subcategory: science
+tags: ["science", "bioinformatics", "benchmark", "eval", "biology"]
+difficulty: L3
+format: research-paper
+reading_time_min: 20
+
+scores:
+  technical_depth: 9
+  actionability: 4
+  novelty: 8
+  impact: 6
+  educational_value: 6
+  timeliness: 8
+  reproducibility: 5
+
+overall_score: 6.6
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: []
+
+key_takeaways:
+  - "BioMysteryBench: 评估 AI 在生物信息学研究中的能力"
+  - "专门的基准测试衡量 Claude 的科学研究能力"
+
+mind_map: |
+  flowchart TD
+    A["BioMysteryBench"] --> B["评估"]
+    B --> B1["生物信息学"]
+    B --> B2["研究能力"]
+
+practice_ideas: []

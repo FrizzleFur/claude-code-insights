@@ -1,0 +1,81 @@
+title: "How We Built Our Multi-Agent Research System"
+slug: "multi-agent-research-system"
+url: "https://www.anthropic.com/engineering/multi-agent-research-system"
+date: "2025-06-13"
+section: engineering
+authors: ["Jeremy Hadfield", "Barry Zhang", "Kenneth Lien", "Florian Scholz", "Jeremy Fox", "Daniel Ford"]
+category: C1
+subcategory: multi-agent
+tags: ["multi-agent", "research", "orchestrator-workers", "eval", "parallelization", "subagent", "production"]
+difficulty: L3
+format: case-study
+reading_time_min: 35
+
+scores:
+  technical_depth: 9
+  actionability: 8
+  novelty: 8
+  impact: 9
+  educational_value: 9
+  timeliness: 7
+  reproducibility: 6
+
+overall_score: 8.2
+
+related_github_projects:
+  - name: "claude-cookbooks"
+    url: "https://github.com/anthropics/claude-cookbooks"
+    relation: "official"
+    stars: 43500
+    description: "Open-source prompts from the Research system"
+
+derived_practices: []
+
+prerequisites: ["building-effective-agents"]
+follows_up: ["effective-context-engineering", "scaling-managed-agents"]
+
+key_takeaways:
+  - "多 Agent 系统比单 Agent 强 90.2%（内部评估），Token 使用量解释 80% 性能差异"
+  - "核心架构: Lead Agent 编排 + Subagents 并行搜索 + Citation Agent 引用归因"
+  - "8 条 Prompt 工程原则: 理解 Agent 思维、教编排者委派、按复杂度分配资源、工具选择关键等"
+  - "评估方法论: 小样本立即开始 → LLM-as-judge 规模化 → 人类测试捕捉盲区"
+  - "生产级挑战: Agent 有状态且错误累积、非确定性导致调试困难、需要彩虹部署"
+  - "搜索策略: 先宽后窄（start wide, then narrow），避免 Agent 默认过于具体的查询"
+
+mind_map: |
+  flowchart TD
+    A["Multi-Agent Research System"] --> B["架构"]
+    A --> C["Prompt 原则"]
+    A --> D["评估"]
+    A --> E["生产挑战"]
+    B --> B1["LeadResearcher<br/>分析/规划/编排"]
+    B --> B2["Subagents<br/>并行搜索/压缩"]
+    B --> B3["CitationAgent<br/>引用归因"]
+    C --> C1["理解 Agent 思维"]
+    C --> C2["教编排者委派"]
+    C --> C3["按复杂度分配资源"]
+    C --> C4["工具选择是关键"]
+    C --> C5["Agent 自我改进"]
+    C --> C6["先宽后窄搜索"]
+    C --> C7["引导思维过程"]
+    C --> C8["并行工具调用"]
+    D --> D1["小样本立即开始"]
+    D --> D2["LLM-as-Judge"]
+    D --> D3["人类测试捕捉盲区"]
+    E --> E1["有状态+错误累积"]
+    E --> E2["非确定性调试"]
+    E --> E3["彩虹部署"]
+
+practice_ideas:
+  - title: "构建双 Agent 协作搜索系统"
+    difficulty: "L2"
+    description: "Lead Agent 分析查询，分解为 2-3 个子任务分发给 Subagents 并行搜索，综合返回结果"
+    tech_stack: "Claude Agent SDK (Python) + Web Search API"
+  - title: "实现 LLM-as-Judge 评估框架"
+    difficulty: "L2"
+    description: "创建 rubric（准确性/完整性/引用质量/效率），用 LLM 对 Agent 输出自动评分"
+    tech_stack: "Python + Claude API"
+  - title: "多 Agent 研究助手"
+    difficulty: "L3"
+    description: "完整复现文章架构: Lead Researcher + Subagents + Citation Agent，支持 web 和文件搜索"
+    tech_stack: "Claude Agent SDK + MCP + File System"

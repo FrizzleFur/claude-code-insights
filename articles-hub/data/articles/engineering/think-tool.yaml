@@ -1,0 +1,67 @@
+title: 'The "Think" Tool: Enabling Claude to Stop and Think'
+slug: "think-tool"
+url: "https://www.anthropic.com/engineering/claude-think-tool"
+date: "2025-03-20"
+section: engineering
+authors: ["Anthropic"]
+category: C2
+subcategory: prompt-engineering
+tags: ["think-tool", "extended-thinking", "tau-bench", "SWE-bench", "agent", "reasoning"]
+difficulty: L2
+format: tutorial
+reading_time_min: 20
+
+scores:
+  technical_depth: 8
+  actionability: 9
+  novelty: 7
+  impact: 8
+  educational_value: 9
+  timeliness: 7
+  reproducibility: 10
+
+overall_score: 8.3
+
+related_github_projects:
+  - name: "claude-cookbooks"
+    url: "https://github.com/anthropics/claude-cookbooks"
+    relation: "official"
+    stars: 43500
+    description: "Think tool implementation examples"
+
+derived_practices: []
+
+prerequisites: ["building-effective-agents"]
+follows_up: ["effective-context-engineering"]
+
+key_takeaways:
+  - "Think Tool 与 Extended Thinking 不同: 后者是行动前深思，前者是行动中暂停反思"
+  - "Airline 域: Think Tool + 优化 prompt 达到 0.570 pass^1，比基线 0.370 提升 54%"
+  - "SWE-bench: Think Tool 单独贡献 1.6% 提升 (Welch's t-test p<0.001, d=1.47)"
+  - "适用场景: 长工具调用链、政策密集环境、序列决策"
+  - "不适用场景: 非顺序工具调用、简单指令跟随"
+  - "实现极简: 只需添加一个 think 工具定义，Claude 自行决定是否调用"
+
+mind_map: |
+  flowchart TD
+    A["Think Tool"] --> B["vs Extended Thinking"]
+    A --> C["适用场景"]
+    A --> D["性能数据"]
+    B --> B1["ET: 行动前深思"]
+    B --> B2["TT: 行动中反思"]
+    C --> C1["长工具调用链"]
+    C --> C2["政策密集环境"]
+    C --> C3["序列决策"]
+    D --> D1["Airline +54%"]
+    D --> D2["SWE-bench +1.6%"]
+    D --> D3["配合 prompt 更佳"]
+
+practice_ideas:
+  - title: "为 Agent 添加 Think Tool"
+    difficulty: "L1"
+    description: "在现有 Agent 的工具列表中添加 think 工具定义，配合领域特定的系统 prompt 指导"
+    tech_stack: "Claude API (JSON tool definition)"
+  - title: "对比 Think Tool vs Extended Thinking"
+    difficulty: "L2"
+    description: "在相同任务上对比两种模式的效果，找出最佳适用场景"
+    tech_stack: "Claude API + Evaluation Framework"

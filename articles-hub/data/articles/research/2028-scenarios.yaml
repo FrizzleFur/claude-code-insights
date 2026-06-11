@@ -1,0 +1,40 @@
+title: "2028: Two Scenarios for Global AI Leadership"
+slug: "2028-scenarios"
+url: "https://www.anthropic.com/research/2028-scenarios"
+date: "2026-05-14"
+section: research
+authors: ["Anthropic Policy Team"]
+category: C5
+subcategory: policy
+tags: ["policy", "geopolitics", "AI-leadership", "2028"]
+difficulty: L1
+format: conceptual
+reading_time_min: 15
+
+scores:
+  technical_depth: 4
+  actionability: 3
+  novelty: 5
+  impact: 7
+  educational_value: 6
+  timeliness: 9
+  reproducibility: 3
+
+overall_score: 5.1
+
+related_github_projects: []
+derived_practices: []
+prerequisites: []
+follows_up: []
+
+key_takeaways:
+  - "2028 年全球 AI 领导力的两种情景分析"
+  - "地缘政治视角下的 AI 发展预测"
+
+mind_map: |
+  flowchart TD
+    A["2028 Scenarios"] --> B["情景"]
+    B --> B1["情景A"]
+    B --> B2["情景B"]
+
+practice_ideas: []

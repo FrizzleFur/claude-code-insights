@@ -1,0 +1,48 @@
+title: "An Update on Recent Claude Code Quality Reports"
+slug: "claude-code-quality-update"
+url: "https://www.anthropic.com/engineering/claude-code-quality-update"
+date: "2026-05-01"
+section: engineering
+authors: ["Anthropic"]
+category: C4
+subcategory: claude-code
+tags: ["claude-code", "quality", "postmortem", "bug-fix"]
+difficulty: L1
+format: case-study
+reading_time_min: 10
+
+scores:
+  technical_depth: 5
+  actionability: 6
+  novelty: 3
+  impact: 5
+  educational_value: 5
+  timeliness: 5
+  reproducibility: 3
+
+overall_score: 4.7
+
+related_github_projects:
+  - name: "claude-code"
+    url: "https://github.com/anthropics/claude-code"
+    relation: "official"
+    stars: 125000
+    description: "Quality fixes applied to Claude Code"
+
+derived_practices: []
+prerequisites: ["claude-code-best-practices"]
+follows_up: []
+
+key_takeaways:
+  - "追踪最近 Claude Code 质量报告到三个独立变更"
+  - "公开透明的质量问题沟通和修复过程"
+
+mind_map: |
+  flowchart TD
+    A["Quality Update"] --> B["三个问题"]
+    B --> B1["变更1"]
+    B --> B2["变更2"]
+    B --> B3["变更3"]
+    A --> C["改进措施"]
+
+practice_ideas: []
