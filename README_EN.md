@@ -12,11 +12,9 @@ English | **[中文](README.md)**
 | Articles Hub | **[Open →](articles-hub/site/index.html)** | 42 articles + 7-dim scoring dashboard |
 | HTML Showcase | **[Open →](html-showcase/index.html)** | 20 zero-dependency interactive demos |
 
-<!-- TODO: Add screenshots here
 ![Version Chronicle](docs/images/version-chronicle.png)
+
 ![Articles Dashboard](docs/images/articles-dashboard.png)
-![HTML Showcase](docs/images/html-showcase.png)
--->
 
 Three modules, **zero dependencies** (pure HTML/CSS/JS, no build tools). Clone and browse.
 

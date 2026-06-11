@@ -12,11 +12,9 @@
 | 文章知识库 | **[打开 →](articles-hub/site/index.html)** | 42 篇文章 + 7 维评分仪表盘 |
 | HTML 示例集 | **[打开 →](html-showcase/index.html)** | 20 个零依赖交互演示 |
 
-<!-- TODO: 截图放这里
 ![版本编年史](docs/images/version-chronicle.png)
+
 ![文章仪表盘](docs/images/articles-dashboard.png)
-![HTML示例集](docs/images/html-showcase.png)
--->
 
 三大模块，**零依赖**（纯 HTML/CSS/JS，无需构建工具），克隆即可浏览。
 
