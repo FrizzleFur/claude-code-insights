@@ -31,8 +31,9 @@
 - **三阶段路线图**：已发布 / 快速迭代中 / 长期愿景
 - **交互功能**：分类筛选、卡片/时间线视图切换、依赖关系图
 
-<!-- TODO: 替换为实际截图 -->
-<!-- ![版本编年史截图](docs/images/version-chronicle.png) -->
+![功能路线图](docs/images/ability-cards.png)
+
+![重要功能里程碑](docs/images/milestones.png)
 
 ### [文章知识库](articles-hub/) — Anthropic 精华文章系统
 
@@ -55,8 +56,7 @@
 - **静态站生成器**：Python 脚本生成零依赖 HTML 仪表盘
 - **42 篇详情页**：每篇文章含评分拆解、核心要点、关联资源
 
-<!-- TODO: 替换为实际截图 -->
-<!-- ![文章仪表盘截图](docs/images/articles-dashboard.png) -->
+![文章仪表盘](docs/images/articles-dashboard.png)
 
 ### [HTML 示例集](html-showcase/) — 零依赖交互演示
 

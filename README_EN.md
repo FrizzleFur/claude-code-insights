@@ -31,8 +31,9 @@ Tracking Claude Code's evolution from **v0.2.21 to v2.1.150**.
 - **3-phase roadmap**: Released / In Progress / Long-term Vision
 - **Interactive**: Category filtering, card/timeline view toggle, dependency graph
 
-<!-- TODO: Replace with actual screenshot -->
-<!-- ![Version Chronicle Screenshot](docs/images/version-chronicle.png) -->
+![Feature Roadmap](docs/images/ability-cards.png)
+
+![Feature Milestones](docs/images/milestones.png)
 
 ### [Articles Hub](articles-hub/) — Anthropic Article Knowledge System
 
@@ -55,8 +56,7 @@ Systematically curated, scored, and categorized analysis of **42 Anthropic techn
 - **Static site generator**: Python scripts produce a zero-dependency HTML dashboard
 - **42 detail pages**: Each article with score breakdown, key takeaways, and related resources
 
-<!-- TODO: Replace with actual screenshot -->
-<!-- ![Articles Dashboard Screenshot](docs/images/articles-dashboard.png) -->
+![Articles Dashboard](docs/images/articles-dashboard.png)
 
 ### [HTML Showcase](html-showcase/) — Interactive HTML Demonstrations
 
