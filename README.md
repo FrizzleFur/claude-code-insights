@@ -1,6 +1,6 @@
 # Claude Code Insights
 
-> **📝 博客深度解读**: [Claude Code Insights: 版本演进追踪与知识库](https://michaelmaomao.github.io/2026/05/12/Claude-Code-Insights-%E7%89%88%E6%9C%AC%E6%BC%94%E8%BF%9B%E8%BF%BD%E8%B8%AA%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%BA%93/) —— 版本编年史、文章知识库评分体系、HTML 示例集详解
+> **📝 博客深度解读**: [Claude Code Insights: 版本演进追踪与知识库](https://michaelmaomao.github.io/2026/06/09/Claude-Code-Insights-%E7%89%88%E6%9C%AC%E6%BC%94%E8%BF%9B%E8%BF%BD%E8%B8%AA%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%BA%93/) —— 版本编年史、文章知识库评分体系、HTML 示例集详解
 
 > 系统化追踪 Claude Code 版本演进与 Anthropic 技术生态的知识库。
 
@@ -22,7 +22,7 @@
 
 ## 模块概览
 
-### [版本编年史](version-chronicle/) — Claude Code 版本时间线
+### [版本编年史](https://michaelmaomao.github.io/2026/06/09/Claude-Code-Insights-%E7%89%88%E6%9C%AC%E6%BC%94%E8%BF%9B%E8%BF%BD%E8%B8%AA%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%BA%93/#版本编年史) — Claude Code 版本时间线
 
 追踪 Claude Code 从 **v0.2.21 到 v2.1.150** 的完整演进历程。
 
@@ -37,7 +37,7 @@
 
 ![重要功能里程碑](docs/images/milestones.png)
 
-### [文章知识库](articles-hub/) — Anthropic 精华文章系统
+### [文章知识库](https://michaelmaomao.github.io/2026/06/09/Claude-Code-Insights-%E7%89%88%E6%9C%AC%E6%BC%94%E8%BF%9B%E8%BF%BD%E8%B8%AA%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%BA%93/#文章知识库) — Anthropic 精华文章系统
 
 对 **42 篇 Anthropic 技术文章**进行系统化评分、分类和索引。
 
@@ -60,7 +60,7 @@
 
 ![文章仪表盘](docs/images/articles-dashboard.png)
 
-### [HTML 示例集](html-showcase/) — 零依赖交互演示
+### [HTML 示例集](https://michaelmaomao.github.io/2026/06/09/Claude-Code-Insights-%E7%89%88%E6%9C%AC%E6%BC%94%E8%BF%9B%E8%BF%BD%E8%B8%AA%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%BA%93/#html-示例集) — 零依赖交互演示
 
 20 个独立的 HTML 示例，展示 HTML 作为通用输出格式的强大能力。*基于 [Anthropic "The unreasonable effectiveness of HTML"](https://github.com/anthropics/html-effectiveness)。*
 

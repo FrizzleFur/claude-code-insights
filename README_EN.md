@@ -1,6 +1,6 @@
 # Claude Code Insights
 
-> **📝 Blog Deep Dive**: [Claude Code Insights: Version Chronicle & Knowledge Base](https://michaelmaomao.github.io/2026/05/12/Claude-Code-Insights-%E7%89%88%E6%9C%AC%E6%BC%94%E8%BF%9B%E8%BF%BD%E8%B8%AA%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%BA%93/) — Version chronicle, article scoring system, and HTML showcase in detail
+> **📝 Blog Deep Dive**: [Claude Code Insights: Version Chronicle & Knowledge Base](https://michaelmaomao.github.io/2026/06/09/Claude-Code-Insights-%E7%89%88%E6%9C%AC%E6%BC%94%E8%BF%9B%E8%BF%BD%E8%B8%AA%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%BA%93/) — Version chronicle, article scoring system, and HTML showcase in detail
 
 > Systematic intelligence on Claude Code version evolution and Anthropic's technical ecosystem.
 
@@ -22,7 +22,7 @@ Three modules, **zero dependencies** (pure HTML/CSS/JS, no build tools). Clone a
 
 ## Modules
 
-### [Version Chronicle](version-chronicle/) — Claude Code Timeline
+### [Version Chronicle](https://michaelmaomao.github.io/2026/06/09/Claude-Code-%E7%89%88%E6%9C%AC%E6%BC%94%E8%BF%9B%E8%BF%BD%E8%B8%AA%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%BA%93/#版本编年史) — Claude Code Timeline
 
 Tracking Claude Code's evolution from **v0.2.21 to v2.1.150**.
 
@@ -37,7 +37,7 @@ Tracking Claude Code's evolution from **v0.2.21 to v2.1.150**.
 
 ![Feature Milestones](docs/images/milestones.png)
 
-### [Articles Hub](articles-hub/) — Anthropic Article Knowledge System
+### [Articles Hub](https://michaelmaomao.github.io/2026/06/09/Claude-Code-%E7%89%88%E6%9C%AC%E6%BC%94%E8%BF%9B%E8%BF%BD%E8%B8%AA%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%BA%93/#文章知识库) — Anthropic Article Knowledge System
 
 Systematically curated, scored, and categorized analysis of **42 Anthropic technical articles**.
 
@@ -60,7 +60,7 @@ Systematically curated, scored, and categorized analysis of **42 Anthropic techn
 
 ![Articles Dashboard](docs/images/articles-dashboard.png)
 
-### [HTML Showcase](html-showcase/) — Interactive HTML Demonstrations
+### [HTML Showcase](https://michaelmaomao.github.io/2026/06/09/Claude-Code-%E7%89%88%E6%9C%AC%E6%BC%94%E8%BF%9B%E8%BF%BD%E8%B8%AA%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%BA%93/#html-示例集) — Interactive HTML Demonstrations
 
 20 self-contained HTML examples demonstrating HTML as a powerful output format. *Based on [Anthropic's "The unreasonable effectiveness of HTML"](https://github.com/anthropics/html-effectiveness).*
 
