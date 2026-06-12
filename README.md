@@ -1,16 +1,18 @@
 # Claude Code Insights
 
+> **📝 博客深度解读**: [Claude Code Insights: 版本演进追踪与知识库](https://michaelmaomao.github.io/2026/05/12/Claude-Code-Insights-%E7%89%88%E6%9C%AC%E6%BC%94%E8%BF%9B%E8%BF%BD%E8%B8%AA%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%BA%93/) —— 版本编年史、文章知识库评分体系、HTML 示例集详解
+
 > 系统化追踪 Claude Code 版本演进与 Anthropic 技术生态的知识库。
 
 **[English](README_EN.md)** | 中文
 
 ## 快速预览
 
-| 模块 | 预览链接 | 说明 |
+| 模块 | 在线预览 | 说明 |
 |------|---------|------|
-| 版本编年史 | **[打开 →](version-chronicle/index.html)** | v0.2.21 → v2.1.150，15 个里程碑 |
-| 文章知识库 | **[打开 →](articles-hub/site/index.html)** | 42 篇文章 + 7 维评分仪表盘 |
-| HTML 示例集 | **[打开 →](html-showcase/index.html)** | 20 个零依赖交互演示 |
+| 版本编年史 | **[打开 →](https://frizzlefur.github.io/claude-code-insights/version-chronicle/index.html)** | v0.2.21 → v2.1.150，15 个里程碑 |
+| 文章知识库 | **[打开 →](https://frizzlefur.github.io/claude-code-insights/articles-hub/site/index.html)** | 42 篇文章 + 7 维评分仪表盘 |
+| HTML 示例集 | **[打开 →](https://frizzlefur.github.io/claude-code-insights/html-showcase/index.html)** | 20 个零依赖交互演示 |
 
 ![版本编年史](docs/images/version-chronicle.png)
 
@@ -91,13 +93,15 @@ claude-code-insights/
 
 ## 浏览方式
 
-| 模块 | 打开文件 |
-|------|---------|
-| 版本编年史 | `version-chronicle/index.html` |
-| 文章知识库 | `articles-hub/site/index.html` |
-| HTML 示例集 | `html-showcase/index.html` |
+**在线访问**（GitHub Pages）：
 
-零安装零构建，浏览器直接打开。
+| 模块 | 在线地址 |
+|------|---------|
+| 版本编年史 | [frizzlefur.github.io/.../version-chronicle](https://frizzlefur.github.io/claude-code-insights/version-chronicle/index.html) |
+| 文章知识库 | [frizzlefur.github.io/.../articles-hub](https://frizzlefur.github.io/claude-code-insights/articles-hub/site/index.html) |
+| HTML 示例集 | [frizzlefur.github.io/.../html-showcase](https://frizzlefur.github.io/claude-code-insights/html-showcase/index.html) |
+
+**本地浏览**：克隆后直接打开对应 HTML 文件，零安装零构建。
 
 ## 数据来源
 

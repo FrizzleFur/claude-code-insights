@@ -1,16 +1,18 @@
 # Claude Code Insights
 
+> **📝 Blog Deep Dive**: [Claude Code Insights: Version Chronicle & Knowledge Base](https://michaelmaomao.github.io/2026/05/12/Claude-Code-Insights-%E7%89%88%E6%9C%AC%E6%BC%94%E8%BF%9B%E8%BF%BD%E8%B8%AA%E4%B8%8E%E7%9F%A5%E8%AF%86%E5%BA%93/) — Version chronicle, article scoring system, and HTML showcase in detail
+
 > Systematic intelligence on Claude Code version evolution and Anthropic's technical ecosystem.
 
 English | **[中文](README.md)**
 
 ## Quick Preview
 
-| Module | Preview | Description |
+| Module | Live Preview | Description |
 |--------|---------|-------------|
-| Version Chronicle | **[Open →](version-chronicle/index.html)** | v0.2.21 → v2.1.150, 15 milestones |
-| Articles Hub | **[Open →](articles-hub/site/index.html)** | 42 articles + 7-dim scoring dashboard |
-| HTML Showcase | **[Open →](html-showcase/index.html)** | 20 zero-dependency interactive demos |
+| Version Chronicle | **[Open →](https://frizzlefur.github.io/claude-code-insights/version-chronicle/index.html)** | v0.2.21 → v2.1.150, 15 milestones |
+| Articles Hub | **[Open →](https://frizzlefur.github.io/claude-code-insights/articles-hub/site/index.html)** | 42 articles + 7-dim scoring dashboard |
+| HTML Showcase | **[Open →](https://frizzlefur.github.io/claude-code-insights/html-showcase/index.html)** | 20 zero-dependency interactive demos |
 
 ![Version Chronicle](docs/images/version-chronicle.png)
 
@@ -91,13 +93,15 @@ claude-code-insights/
 
 ## Browsing
 
-| Module | Open File |
-|--------|-----------|
-| Version Chronicle | `version-chronicle/index.html` |
-| Articles Hub | `articles-hub/site/index.html` |
-| HTML Showcase | `html-showcase/index.html` |
+**Online** (GitHub Pages):
 
-Zero install, zero build. Open any `.html` file in a browser.
+| Module | URL |
+|--------|-----|
+| Version Chronicle | [frizzlefur.github.io/.../version-chronicle](https://frizzlefur.github.io/claude-code-insights/version-chronicle/index.html) |
+| Articles Hub | [frizzlefur.github.io/.../articles-hub](https://frizzlefur.github.io/claude-code-insights/articles-hub/site/index.html) |
+| HTML Showcase | [frizzlefur.github.io/.../html-showcase](https://frizzlefur.github.io/claude-code-insights/html-showcase/index.html) |
+
+**Local**: Clone the repo and open the corresponding HTML files directly. Zero install, zero build.
 
 ## Data Sources
 
